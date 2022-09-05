@@ -12,15 +12,19 @@ const BubbleSort = () => {
   let height=0;
   let lengthofArray=14;
   let size=0;
+  let z=0;
   function setup(p5, parentRef) {
      width = ref.current.clientWidth;
+     z= ref.current.cientWidth;
      height = ref.current.clientHeight;
-    size=width/lengthofArray;
+     console.log(width);
+     console.log(z);
+    size=(width/lengthofArray)*(lengthofArray/60);
     p5.createCanvas(width, height).parent(parentRef);
     gap=width-lengthofArray*size;
     gap=gap/2;
     for (let x = 0; x < lengthofArray; x++) {
-      values.push(Math.floor(Math.random() * height-10)+5);
+      values.push(Math.floor(Math.random()*(height-10))+10)
     }
   }
   function draw(p5) {
@@ -74,13 +78,14 @@ const BubbleSort = () => {
 }
 
   const resetHandler = () => {
-    size=width/lengthofArray;
+    size=(width/lengthofArray)*Math.min(1,((lengthofArray*2.5)/60));
     gap=width-lengthofArray*size;
     gap=gap/2;
     i = 0;
     values = [];
     for (let x = 0; x < lengthofArray; x++) {
-      values.push(Math.floor(Math.random() * height-10)+5);
+      values.push(Math.floor(Math.random()*(height-10))+10)
+      console.log(values)
     }
     sort=false;
   }  
