@@ -4,16 +4,26 @@
  */
 import React, { useEffect, useRef, useState } from "react";
 import Sketch from "react-p5";
-import Sorting from './algorithm/sortingAlgorithm/sorting.js';
+import SelectionSort from "./algorithm/sortingAlgorithm/selectionSort";
+import InsertionSort from "./algorithm/sortingAlgorithm/insetionSort";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+} from "react-router-dom";
 import "./App.css";
 const App = () => {
-  
   return (
-    <div className="App">
-      <Sorting/>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/selectionSort" element={<SelectionSort />} />
+          <Route path="/insertionSort" element={<InsertionSort />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
 export default App;
- 
